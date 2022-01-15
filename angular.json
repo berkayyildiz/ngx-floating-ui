@@ -3,5 +3,37 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ngx-floating-ui": {
+      "projectType": "library",
+      "root": "projects/ngx-floating-ui",
+      "sourceRoot": "projects/ngx-floating-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ngx-floating-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-floating-ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-floating-ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-floating-ui/src/test.ts",
+            "tsConfig": "projects/ngx-floating-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-floating-ui/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ngx-floating-ui"
 }
